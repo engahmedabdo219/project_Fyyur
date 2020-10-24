@@ -3,15 +3,19 @@
 {% block content %}
 <h3>Number of search results for "{{ search_term }}": {{ results.count }}</h3>
 <ul class="items">
-	{% for venue in results.data %}
+	{% for venue in results.venues %}
 	<li>
 		<a href="/venues/{{ venue.id }}">
 			<i class="fas fa-music"></i>
 			<div class="item">
-				<h5>{{ venue.name }}</h5>
+				
+				<h5> id :{{ venue.id }}</h5>
+				<h5> name :{{ venue.name}}</h5>
+				<h5>  num_upcoming_shows :{{ venue.num_upcoming_shows}}</h5>
 			</div>
 		</a>
 	</li>
 	{% endfor %}
+	<li>no of search :{{ results.count }}</li>
 </ul>
 {% endblock %}
